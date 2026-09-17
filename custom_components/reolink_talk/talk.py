@@ -589,7 +589,7 @@ async def send_talk_binary(
     if enc_type == bc_util.EncType.BC:
         enc_ext = bc_util.encrypt_baichuan(ext, ch_id)  # enc_offset = ch_id
     else:
-        enc_ext = bc._aes_encrypt(ext)
+        enc_ext = bc._aes_encrypt(ext.encode("utf-8"))
     payload_offset = len(enc_ext)
     mess_len = payload_offset + len(binary_payload)
 
